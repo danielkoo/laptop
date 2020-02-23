@@ -196,7 +196,10 @@ install_asdf_language() {
   fi
 }
 
-fancy_echo "Installing latest Ruby ..."
+fancy_echo "Installing latest Terraform 0.12.20 ..."
+install_asdf_language "terraform" "0.12.20"
+
+#fancy_echo "Installing latest Ruby ..."
 #install_asdf_language "ruby"
 #gem update --system
 #number_of_cores=$(sysctl -n hw.ncpu)
