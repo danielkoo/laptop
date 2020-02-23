@@ -115,7 +115,7 @@ tap "thoughtbot/formulae"
 tap "homebrew/services"
 tap "universal-ctags/universal-ctags"
 tap "heroku/brew"
-tap "caskroom/cask"
+tap "homebrew/cask-cask"
 
 # Unix
 brew "universal-ctags", args: ["HEAD"]
