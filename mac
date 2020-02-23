@@ -115,7 +115,6 @@ tap "thoughtbot/formulae"
 tap "homebrew/services"
 tap "universal-ctags/universal-ctags"
 #tap "heroku/brew"
-tap "homebrew/cask-cask"
 
 # Unix
 brew "universal-ctags", args: ["HEAD"]
@@ -163,7 +162,10 @@ EOF
 #fancy_echo "Configuring asdf version manager ..."
 if [ -d "$HOME/.asdf" ]; then
 #  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.5.0
-  append_to_zshrc "source $HOME/.asdf/asdf.sh" 1
+#  append_to_zshrc "source $HOME/.asdf/asdf.sh" 1
+  echo -e "\n. $(brew --prefix asdf)/asdf.sh" >> ~/.bash_profile
+  echo -e "\n. $(brew --prefix asdf)/etc/bash_completion.d/asdf.bash" >> ~/.bash_profile
+
 fi
 
 alias install_asdf_plugin=add_or_update_asdf_plugin
