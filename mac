@@ -128,6 +128,19 @@ brew "vim"
 #brew "watchman"
 #brew "zsh"
 
+# support for asdf
+brew "coreutils"
+brew "automake"
+brew "autoconf"
+brew "openssl"
+brew "libyaml"
+brew "readline"
+brew "libxslt"
+brew "libtool"
+brew "unixodbc"
+brew "unzip"
+brew "curl"
+
 # my utilities
 brew "asdf"
 cask "rectangle"
@@ -182,6 +195,7 @@ add_or_update_asdf_plugin() {
 
 # shellcheck disable=SC1090
 source "$(brew --prefix asdf)/asdf.sh"
+add_or_update_asdf_plugin "terraform"
 #add_or_update_asdf_plugin "ruby" "https://github.com/asdf-vm/asdf-ruby.git"
 #add_or_update_asdf_plugin "nodejs" "https://github.com/asdf-vm/asdf-nodejs.git"
 
