@@ -18,7 +18,8 @@ append_to_zshrc() {
   if [ -w "$HOME/.zshrc.local" ]; then
     zshrc="$HOME/.zshrc.local"
   else
-    zshrc="$HOME/.zshrc"
+# just changed the filename without changing the var name to minimise diffs with upstream
+    zshrc="$HOME/.bashrc"
   fi
 
   if ! grep -Fqs "$text" "$zshrc"; then
@@ -39,9 +40,9 @@ if [ ! -d "$HOME/.bin/" ]; then
   mkdir "$HOME/.bin"
 fi
 
-if [ ! -f "$HOME/.zshrc" ]; then
-  touch "$HOME/.zshrc"
-fi
+#if [ ! -f "$HOME/.zshrc" ]; then
+#  touch "$HOME/.zshrc"
+#fi
 
 # shellcheck disable=SC2016
 append_to_zshrc 'export PATH="$HOME/.bin:$PATH"'
@@ -77,7 +78,7 @@ case "$SHELL" in
     fi
     ;;
   *)
-    update_shell
+#    update_shell
     ;;
 esac
 
@@ -114,6 +115,7 @@ tap "thoughtbot/formulae"
 tap "homebrew/services"
 tap "universal-ctags/universal-ctags"
 tap "heroku/brew"
+tap "caskroom/cask"
 
 # Unix
 brew "universal-ctags", args: ["HEAD"]
@@ -124,37 +126,43 @@ brew "reattach-to-user-namespace"
 brew "the_silver_searcher"
 brew "tmux"
 brew "vim"
-brew "watchman"
-brew "zsh"
+#brew "watchman"
+#brew "zsh"
+
+# my utilities
+brew "asdf"
+cask "rectangle"
+cask "iterm2"
+cask "visual-studio-code"
 
 # Heroku
-brew "heroku/brew/heroku"
-brew "parity"
+#brew "heroku/brew/heroku"
+#brew "parity"
 
 # GitHub
 brew "hub"
 
 # Image manipulation
-brew "imagemagick"
+#brew "imagemagick"
 
 # Programming language prerequisites and package managers
 brew "libyaml" # should come after openssl
 brew "coreutils"
-brew "yarn"
+#brew "yarn"
 cask "gpg-suite"
 
 # Databases
-brew "postgres", restart_service: :changed
-brew "redis", restart_service: :changed
+#brew "postgres", restart_service: :changed
+#brew "redis", restart_service: :changed
 EOF
 
-fancy_echo "Update heroku binary ..."
-brew unlink heroku
-brew link --force heroku
+#fancy_echo "Update heroku binary ..."
+#brew unlink heroku
+#brew link --force heroku
 
-fancy_echo "Configuring asdf version manager ..."
-if [ ! -d "$HOME/.asdf" ]; then
-  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.5.0
+#fancy_echo "Configuring asdf version manager ..."
+if [ -d "$HOME/.asdf" ]; then
+#  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.5.0
   append_to_zshrc "source $HOME/.asdf/asdf.sh" 1
 fi
 
@@ -172,8 +180,8 @@ add_or_update_asdf_plugin() {
 
 # shellcheck disable=SC1090
 source "$HOME/.asdf/asdf.sh"
-add_or_update_asdf_plugin "ruby" "https://github.com/asdf-vm/asdf-ruby.git"
-add_or_update_asdf_plugin "nodejs" "https://github.com/asdf-vm/asdf-nodejs.git"
+#add_or_update_asdf_plugin "ruby" "https://github.com/asdf-vm/asdf-ruby.git"
+#add_or_update_asdf_plugin "nodejs" "https://github.com/asdf-vm/asdf-nodejs.git"
 
 install_asdf_language() {
   local language="$1"
@@ -187,14 +195,14 @@ install_asdf_language() {
 }
 
 fancy_echo "Installing latest Ruby ..."
-install_asdf_language "ruby"
-gem update --system
-number_of_cores=$(sysctl -n hw.ncpu)
-bundle config --global jobs $((number_of_cores - 1))
+#install_asdf_language "ruby"
+#gem update --system
+#number_of_cores=$(sysctl -n hw.ncpu)
+#bundle config --global jobs $((number_of_cores - 1))
 
-fancy_echo "Installing latest Node ..."
-bash "$HOME/.asdf/plugins/nodejs/bin/import-release-team-keyring"
-install_asdf_language "nodejs"
+#fancy_echo "Installing latest Node ..."
+#bash "$HOME/.asdf/plugins/nodejs/bin/import-release-team-keyring"
+#install_asdf_language "nodejs"
 
 if [ -f "$HOME/.laptop.local" ]; then
   fancy_echo "Running your customizations from ~/.laptop.local ..."
