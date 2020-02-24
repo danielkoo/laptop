@@ -149,6 +149,8 @@ cask "iterm2"
 cask "visual-studio-code"
 cask "docker"
 cask "spideroakone"
+cask "firefox"
+cask "google-chrome"
 
 # Heroku
 #brew "heroku/brew/heroku"
