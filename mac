@@ -125,6 +125,7 @@ brew "reattach-to-user-namespace"
 brew "the_silver_searcher"
 brew "tmux"
 brew "vim"
+brew "mas"
 #brew "watchman"
 #brew "zsh"
 
@@ -146,6 +147,8 @@ brew "asdf"
 cask "rectangle"
 cask "iterm2"
 cask "visual-studio-code"
+cask "docker"
+cask "spideroakone"
 
 # Heroku
 #brew "heroku/brew/heroku"
@@ -167,6 +170,15 @@ cask "gpg-suite"
 #brew "postgres", restart_service: :changed
 #brew "redis", restart_service: :changed
 EOF
+
+# Apple App Store
+mas install 803453959 # Slack
+mas install 411643860 # Daisy Disk
+mas install 1287445660 # Agenda
+mas install 688211836 # EasyRes
+mas install 405399194 # Kindle
+#mas upgrade
+
 
 #fancy_echo "Update heroku binary ..."
 #brew unlink heroku
