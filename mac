@@ -159,6 +159,10 @@ cask "google-chrome"
 # GitHub
 brew "hub"
 
+# AWS
+brew "awscli"
+cask "aws-vault"
+
 # Image manipulation
 #brew "imagemagick"
 
