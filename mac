@@ -187,6 +187,10 @@ mas install 688211836 # EasyRes
 mas install 405399194 # Kindle
 mas install 1121192229 # Better Blocker
 mas install 1385985095 # uBlock
+mas install 926036361 # LastPass
+mas install 1319778037 # iStat Menus
+mas install 1482920575 # DuckDuckGo Privacy Essentials
+#mas install 1463400445 # Ecosia
 #mas upgrade
 
 
