@@ -140,6 +140,7 @@ brew "libxslt"
 brew "libtool"
 brew "unixodbc"
 brew "unzip"
+brew "unrar"
 brew "curl"
 
 # my utilities
