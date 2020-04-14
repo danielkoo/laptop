@@ -153,6 +153,7 @@ cask "docker"
 cask "spideroakone"
 cask "firefox"
 cask "google-chrome"
+cask "vagrant"
 
 # Heroku
 #brew "heroku/brew/heroku"
